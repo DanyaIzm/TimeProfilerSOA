@@ -13,7 +13,7 @@ class RequestWay:
     name: str
     probability: Numeric
     time: Numeric
-    formula_fmt: str = "U{}(K{})"
+    formula_fmt: str = "U{}(K={})"
     formula: str = ""
 
     def get_rounded_probability(self) -> Numeric:
@@ -23,7 +23,7 @@ class RequestWay:
         return self.formula_fmt.format(self.name, self.time)
 
     def __str__(self) -> str:
-        return f"{self.formula_fmt.format(self.name, self.time)}={round(self.time, ROUND_NDIGITS)}"
+        return self.formula_fmt.format(self.name, round(self.time, ROUND_NDIGITS))
 
 
 class RequestWayMapper:
