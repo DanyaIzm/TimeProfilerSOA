@@ -47,6 +47,7 @@ def main():
     tps.collect_last_row()
     print("Последний ряд после сборки")
     pprint(tps.get_last_row())
+    pprint([x.formula for x in tps.get_last_row()])
 
     e, e_log = tps.get_math_expectation_logged()
     print("Мат. ожидание:")
@@ -66,7 +67,7 @@ def main():
     print("Вычисление риска:")
     print(r_log)
 
-    ImageDrawer(*RequestWayMapper(tps.get_last_row()).map(), PLOT_PATH).draw()
+    ImageDrawer(*RequestWayMapper(tps.get_last_row()).map(), "t", "P", PLOT_PATH).draw()
 
 
 if __name__ == "__main__":
