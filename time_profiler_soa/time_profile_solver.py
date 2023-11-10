@@ -60,7 +60,7 @@ class TimeProfileSolver:
 
         # first step - just append first service info to results
         for i, (p, t) in enumerate(zip(self.probabilities[0], self.times[0])):
-            rw = RequestWay(f"{i + 1}", p, t)
+            rw = RequestWay("1", p, t)
             rw.formula = rw.get_formated_formula_name()
 
             self.results[0].append(rw)
@@ -76,7 +76,7 @@ class TimeProfileSolver:
                     p, t = last_rw.probability, last_rw.time
 
                     rw = RequestWay(
-                        f"{last_rw.name}{i + 1}", service_p * p, service_t + t
+                        f"{last_rw.name}{service_id + 1}", service_p * p, service_t + t
                     )
 
                     self.results[-1].append(rw)
